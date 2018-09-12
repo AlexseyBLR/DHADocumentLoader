@@ -11,7 +11,6 @@ import java.util.*;
 @Repository
 public class SqlValuesImpl implements SqlValues {
 
-
     private final static String PROPERTY_NAME = "DataBaseProperties";
     private final static ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(PROPERTY_NAME);
 
@@ -35,6 +34,7 @@ public class SqlValuesImpl implements SqlValues {
         }
         return sqlValuesMap;
     }
+
 
     private List<String> getArgumentList(String sqlQuery) throws SQLException {
 
@@ -66,6 +66,7 @@ public class SqlValuesImpl implements SqlValues {
         return null;
     }
 
+
     private Connection getDBConnection() {
         Connection dbConnection = null;
         try {
@@ -81,7 +82,6 @@ public class SqlValuesImpl implements SqlValues {
             System.out.println("ERROR: " + e.getMessage());
         }
         return null;
-
     }
 
 }
