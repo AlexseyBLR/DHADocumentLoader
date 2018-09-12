@@ -10,8 +10,7 @@ import java.util.*;
 
 @Repository
 public class SqlValuesImpl implements SqlValues {
-
-
+    
     private final static String PROPERTY_NAME = "DataBaseProperties";
     private final static ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(PROPERTY_NAME);
 
