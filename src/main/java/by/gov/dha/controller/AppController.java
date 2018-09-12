@@ -28,6 +28,7 @@ public class AppController {
         modelMap.addAttribute("docWasteList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocWaste()));
         modelMap.addAttribute("docAssetsList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocAssets()));
         modelMap.addAttribute("docServicesList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocServices()));
+
         
         modelMap.addAttribute("values", sqlValuesService.getSqlQueryFromDoc(docService.getDoc()));
 
