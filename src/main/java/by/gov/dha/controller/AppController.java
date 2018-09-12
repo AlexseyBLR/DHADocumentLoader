@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping(value = "/")
 public class AppController {
-    
+
     @Autowired
     private DocService docService;
 
@@ -33,15 +33,6 @@ public class AppController {
         modelMap.addAttribute("emptyDocument", new Doc());
 
         modelMap.addAttribute("values", sqlValuesService.getSqlQueryFromDoc(docService.getDoc()));
-
-//        Map<String, List<String>> values = new HashMap<>();
-
-//        List<String> dbdList = sqlValuesService.getAttributeValues();
-//        values.put("select * from DBD", dbdList);
-
-
-//        modelMap.addAttribute("testMap", values);
-
 
         return "MAIN";
     }
