@@ -3,7 +3,6 @@ package by.gov.dha.controller;
 
 import by.gov.dha.document.Doc;
 import by.gov.dha.document.SimpleTableValues;
-import by.gov.dha.document.SqlQuery;
 import by.gov.dha.service.DocService;
 import by.gov.dha.service.SQLValuesService;
 import org.springframework.beans.factory.annotation.Autowired;
