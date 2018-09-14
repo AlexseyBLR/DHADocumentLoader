@@ -11,6 +11,7 @@
             crossorigin="anonymous"></script>
 </head>
 
+
 <c:if test="${attr.type eq 'String'}">
     <%@include file="TypeString.jsp" %>
 </c:if>

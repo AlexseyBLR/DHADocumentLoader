@@ -11,7 +11,7 @@
             crossorigin="anonymous"></script>
 
     <style>
-        select{
+        select {
             width: 700px;
         }
     </style>
@@ -21,15 +21,22 @@
 
     <c:if test="${attr.editable eq '1'}">
         <c:if test="${attr.visible eq '1'}">
-            <input id="radio" type="radio" name="selectOrInputType" value="inputText"/><input
-                type="text" name="selectOrInputInputValue" value="${attr.attr.get(0).value}"/>
 
-            <input type="radio" name="selectOrInputType" value="select">
-            <select name="selectOrInputSelectValue">
-                <c:forEach var="options" items="${values.get(attr.sql)}">
-                        <option value="${attrType.value}">${options}</option>
-                </c:forEach>
-            </select>
+            <input id="radio" type="radio" name="selectOrInputType" value="inputText"/>
+
+            <form:input path="${attr.attr[0].path}.value" value="${attr.value}" type="text" placeholder="${attr.footer}"
+                        minlength="${attr.minLength}" maxlength="${attr.maxLength}"
+                        style="margin: 0.3%; width: ${attr.inputWidth}px; text-align: ${attr.alignment}"/>
+            <%--<input--%>
+            <%--type="text" name="selectOrInputInputValue" value="${attr.attr.get(0).value}"/>--%>
+
+            <input type="radio" name="selectOrInputType" value="select"/>
+            <form:select path="${attr.path}.value" items="${values.get(attr.sql)}"></form:select>
+            <%--<select name="selectOrInputSelectValue">--%>
+            <%--<c:forEach var="options" items="${values.get(attr.sql)}">--%>
+            <%--<option value="${attrType.value}">${options}</option>--%>
+            <%--</c:forEach>--%>
+            <%--</select>--%>
         </c:if>
         <br>
         <c:if test="${attr.visible eq '0'}"></c:if>
@@ -38,16 +45,23 @@
 
     <c:if test="${attr.editable eq '0'}">
         <c:if test="${attr.visible eq '1'}">
-            <input type="radio" name="selectOrInputType" value="inputText" disabled/><input
-                type="text" name="selectOrInputInputValue" value="${attr.attr.get(0).value}"
-                placeholder="${attr.attr.get(0).footer}" disabled/>
+
+            <form:input path="${attr.path}.value" value="${attr.value}" type="text" placeholder="${attr.footer}"
+                        minlength="${attr.minLength}" maxlength="${attr.maxLength}"
+                        style="margin: 0.3%; width: ${attr.inputWidth}px; text-align: ${attr.alignment}"
+                        disabled="true"/>
+            <%--<input type="radio" name="selectOrInputType" value="inputText" disabled/><input--%>
+            <%--type="text" name="selectOrInputInputValue" value="${attr.attr.get(0).value}"--%>
+            <%--placeholder="${attr.attr.get(0).footer}" disabled/>--%>
 
             <input type="radio" name="selectOrInputType" value="select" disabled>
-            <select name="selectOrInputSelectValue">
-                <c:forEach var="options" items="${values.get(attr.sql)}">
-                    <option value="${attrType.value}">${options}</option>
-                </c:forEach>
-            </select>
+
+            <form:select path="${attr.path}.value" items="${values.get(attr.sql)}"></form:select>
+            <%--<select name="selectOrInputSelectValue">--%>
+                <%--<c:forEach var="options" items="${values.get(attr.sql)}">--%>
+                    <%--<option value="${attrType.value}">${options}</option>--%>
+                <%--</c:forEach>--%>
+            <%--</select>--%>
         </c:if>
         <c:if test="${attr.visible eq '0'}"></c:if>
     </c:if>

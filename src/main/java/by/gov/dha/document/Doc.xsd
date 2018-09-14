@@ -20,6 +20,7 @@
         <attribute name="inputWidth" type="int"/>
         <attribute name="textWidth" type="int"/>
         <attribute name="sqlKey" type="string"/>
+        <attribute name="path" type="string"/>
     </attributeGroup>
 
     <attributeGroup name="DataRestrictAttrGroup">

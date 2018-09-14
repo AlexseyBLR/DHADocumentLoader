@@ -34,22 +34,22 @@
 <body>
 <div class="container">
 
-    <c:set value="${document.docSql}" var="docSql"/>
-    <c:set value="${document.docAttr}" var="docAttr"/>
-    <c:set value="${document.docDocs}" var="docDocs"/>
-    <c:set value="${document.docOrgs}" var="docOrgs"/>
-    <c:set value="${document.docSign}" var="docSign"/>
-    <c:set value="${document.docWaste}" var="docWaste"/>
-    <c:set value="${document.docAssets}" var="docAssets"/>
-    <c:set value="${document.docServices}" var="docServices"/>
-    <c:set value="${document.docBankDetails}" var="docBankDetails"/>
+    <c:set value="${sessionScope.sessionDoc.docSql}" var="docSql"/>
+    <c:set value="${sessionScope.sessionDoc.docAttr}" var="docAttr"/>
+    <c:set value="${sessionScope.sessionDoc.docDocs}" var="docDocs"/>
+    <c:set value="${sessionScope.sessionDoc.docOrgs}" var="docOrgs"/>
+    <c:set value="${sessionScope.sessionDoc.docSign}" var="docSign"/>
+    <c:set value="${sessionScope.sessionDoc.docWaste}" var="docWaste"/>
+    <c:set value="${sessionScope.sessionDoc.docAssets}" var="docAssets"/>
+    <c:set value="${sessionScope.sessionDoc.docServices}" var="docServices"/>
+    <c:set value="${sessionScope.sessionDoc.docBankDetails}" var="docBankDetails"/>
+
+
+    <form:form modelAttribute="document" action="/testNext" method="get">
 
 
 
-
-    <form:form modelAttribute="emptyDocument" action="/testGet" method="get">
-
-        <h3 style="text-align: center">${document.docName}</h3>
+        <h3 style="text-align: center">${sessionScope.session.docName}</h3>
         <br>
 
         <c:if test="${docAttr !=null}">

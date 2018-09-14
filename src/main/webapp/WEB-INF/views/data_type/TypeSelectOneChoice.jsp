@@ -22,11 +22,14 @@
         <c:if test="${attr.visible eq '1'}">
             ${attr.header}
             <br>
-            <select name="selectOnChoiceValue">
-                <c:forEach var="options" items="${values.get(attr.sql)}">
-                    <option value="${attrType.value}">${options}</option>
-                </c:forEach>
-            </select>
+
+            <form:select path="${attr.path}.value" items="${values.get(attr.sql)}"></form:select>
+
+            <%--<select name="selectOnChoiceValue">--%>
+                <%--<c:forEach var="options" items="${values.get(attr.sql)}">--%>
+                    <%--<option value="${attrType.value}">${options}</option>--%>
+                <%--</c:forEach>--%>
+            <%--</select>--%>
         </c:if>
 
         <c:if test="${attr.visible eq '0'}"></c:if>
@@ -36,13 +39,33 @@
         <c:if test="${attr.visible eq '1'}">
             ${attr.header}
             <br>
-            <select name="selectOnChoiceValue" disabled>
-                <c:forEach var="options" items="${values.get(attr.sql)}">
-                    <option value="${attrType.value}">${options}</option>
-                </c:forEach>
-            </select>
+
+            <form:select path="${attr.path}.value" items="${values.get(attr.sql)}"></form:select>
+            <%--<select name="selectOnChoiceValue" disabled>--%>
+                <%--<c:forEach var="options" items="${values.get(attr.sql)}">--%>
+                    <%--<option value="${attrType.value}">${options}</option>--%>
+                <%--</c:forEach>--%>
+            <%--</select>--%>
         </c:if>
         <c:if test="${attr.visible eq '0'}"></c:if>
+    </c:if>
+
+
+    <c:if test="${attrType.editable eq '1'}">
+        <c:if test="${attrType.visible eq '1'}">
+            ${attrType.header}
+            <br>
+
+            <form:select path="${attrType.path}.value" items="${values.get(attrType.sql)}"></form:select>
+
+            <%--<select name="selectOnChoiceValue">--%>
+            <%--<c:forEach var="options" items="${values.get(attr.sql)}">--%>
+            <%--<option value="${attrType.value}">${options}</option>--%>
+            <%--</c:forEach>--%>
+            <%--</select>--%>
+        </c:if>
+
+        <c:if test="${attrType.visible eq '0'}"></c:if>
     </c:if>
 
 </div>

@@ -15,4 +15,9 @@ public class DocServiceImpl implements DocService {
     public Doc getDoc() {
         return docDAO.getDoc();
     }
+
+    @Override
+    public void saveDoc(Doc document) {
+        docDAO.saveDoc(document);
+    }
 }
