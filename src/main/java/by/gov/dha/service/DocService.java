@@ -6,4 +6,6 @@ public interface DocService {
 
     Doc getDoc();
 
+    void saveDoc(Doc document);
+
 }

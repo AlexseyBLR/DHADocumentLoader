@@ -45,10 +45,12 @@
         <br>
         <c:if test="${docAttr.type eq 'HBlock'}">
             <c:forEach var="attr" items="${docAttr.attr}">
+                <label>${attr.header}</label>
                 <%@include file="../data_type/TypeMain.jsp" %>
             </c:forEach></c:if>
         <c:if test="${docAttr.type eq 'VBlock'}">
             <c:forEach var="attr" items="${docAttr.attr}">
+                <label>${attr.header}</label>
                 <%@include file="../data_type/TypeMain.jsp" %>
                 <br/>
             </c:forEach>

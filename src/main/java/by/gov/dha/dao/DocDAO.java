@@ -6,4 +6,6 @@ public interface DocDAO {
 
     Doc getDoc();
 
+    void saveDoc(Doc document);
+
 }

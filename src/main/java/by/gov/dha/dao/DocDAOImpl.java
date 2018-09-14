@@ -4,11 +4,13 @@ import by.gov.dha.document.*;
 import org.springframework.stereotype.Repository;
 
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
 @Repository
 public class DocDAOImpl implements DocDAO {
+
     public Doc getDoc() {
         Doc doc = new Doc();
         DocAttr docAttr = new DocAttr();
@@ -43,7 +45,7 @@ public class DocDAOImpl implements DocDAO {
         doc.setDocServices(docServices);
         doc.setDocBankDetails(docBankDetails);
 
-        File xml = new File("D:\\AlexeyMeleschenya\\DocumentLoader\\src\\main\\resources\\test.xml");
+        File xml = new File("D:\\AlexeyMeleschenya\\DHADocumentLoader\\src\\main\\resources\\test.xml");
         try {
             JAXBContext jaxbctx = JAXBContext.newInstance("by.gov.dha.document");
             Unmarshaller unm = jaxbctx.createUnmarshaller();
@@ -53,6 +55,19 @@ public class DocDAOImpl implements DocDAO {
             e.printStackTrace();
         }
 
+
         return null;
+    }
+
+
+    public void saveDoc(Doc document){
+        File savedXml = new File("D:\\AlexeyMeleschenya\\DHADocumentLoader\\src\\main\\resources\\savedTest.xml");
+        try {
+            JAXBContext jaxbctx = JAXBContext.newInstance("by.gov.dha.document");
+            Marshaller marshaller = jaxbctx.createMarshaller();
+            marshaller.marshal(document, savedXml);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

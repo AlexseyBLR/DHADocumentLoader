@@ -8,9 +8,9 @@ import java.util.List;
 
 /**
  * <p>Java class for Attr complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Attr">
  *   &lt;complexContent>
@@ -25,13 +25,11 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Attr", namespace = "http://document.dha.gov.by", propOrder = {
-    "value",
-    "attr"
+        "value",
+        "attr"
 })
 public class Attr {
 
@@ -87,6 +85,25 @@ public class Attr {
     protected String inputWidth;
     @XmlAttribute(name = "textWidth")
     protected String textWidth;
+    @XmlAttribute(name = "path")
+    protected String path;
+
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getSqlKey() {
+        return sqlKey;
+    }
+
+    public void setSqlKey(String sqlKey) {
+        this.sqlKey = sqlKey;
+    }
 
     public String getTextWidth() {
         return textWidth;
@@ -106,11 +123,9 @@ public class Attr {
 
     /**
      * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getValue() {
         return value;
@@ -118,11 +133,9 @@ public class Attr {
 
     /**
      * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setValue(String value) {
         this.value = value;
@@ -130,25 +143,23 @@ public class Attr {
 
     /**
      * Gets the value of the attr property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the attr property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAttr().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Attr }
-     * 
-     * 
      */
     public List<Attr> getAttr() {
         if (attr == null) {
@@ -159,11 +170,9 @@ public class Attr {
 
     /**
      * Gets the value of the num property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getNum() {
         return num;
@@ -171,11 +180,9 @@ public class Attr {
 
     /**
      * Sets the value of the num property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setNum(Integer value) {
         this.num = value;
@@ -183,11 +190,9 @@ public class Attr {
 
     /**
      * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getType() {
         return type;
@@ -195,11 +200,9 @@ public class Attr {
 
     /**
      * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setType(String value) {
         this.type = value;
@@ -207,11 +210,9 @@ public class Attr {
 
     /**
      * Gets the value of the code property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCode() {
         return code;
@@ -219,11 +220,9 @@ public class Attr {
 
     /**
      * Sets the value of the code property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCode(String value) {
         this.code = value;
@@ -231,11 +230,9 @@ public class Attr {
 
     /**
      * Gets the value of the footer property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFooter() {
         return footer;
@@ -243,11 +240,9 @@ public class Attr {
 
     /**
      * Sets the value of the footer property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFooter(String value) {
         this.footer = value;
@@ -255,11 +250,9 @@ public class Attr {
 
     /**
      * Gets the value of the header property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getHeader() {
         return header;
@@ -267,11 +260,9 @@ public class Attr {
 
     /**
      * Sets the value of the header property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setHeader(String value) {
         this.header = value;
@@ -279,11 +270,9 @@ public class Attr {
 
     /**
      * Gets the value of the prefix property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPrefix() {
         return prefix;
@@ -291,11 +280,9 @@ public class Attr {
 
     /**
      * Sets the value of the prefix property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPrefix(String value) {
         this.prefix = value;
@@ -303,11 +290,9 @@ public class Attr {
 
     /**
      * Gets the value of the postfix property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPostfix() {
         return postfix;
@@ -315,11 +300,9 @@ public class Attr {
 
     /**
      * Sets the value of the postfix property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPostfix(String value) {
         this.postfix = value;
@@ -327,11 +310,9 @@ public class Attr {
 
     /**
      * Gets the value of the visible property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getVisible() {
         return visible;
@@ -339,11 +320,9 @@ public class Attr {
 
     /**
      * Sets the value of the visible property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setVisible(Integer value) {
         this.visible = value;
@@ -351,11 +330,9 @@ public class Attr {
 
     /**
      * Gets the value of the editable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getEditable() {
         return editable;
@@ -363,11 +340,9 @@ public class Attr {
 
     /**
      * Sets the value of the editable property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setEditable(Integer value) {
         this.editable = value;
@@ -375,11 +350,9 @@ public class Attr {
 
     /**
      * Gets the value of the required property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getRequired() {
         return required;
@@ -387,11 +360,9 @@ public class Attr {
 
     /**
      * Sets the value of the required property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setRequired(Integer value) {
         this.required = value;
@@ -399,11 +370,9 @@ public class Attr {
 
     /**
      * Gets the value of the alignment property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAlignment() {
         return alignment;
@@ -411,11 +380,9 @@ public class Attr {
 
     /**
      * Sets the value of the alignment property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAlignment(String value) {
         this.alignment = value;
@@ -423,11 +390,9 @@ public class Attr {
 
     /**
      * Gets the value of the columnRef property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getColumnRef() {
         return columnRef;
@@ -435,11 +400,9 @@ public class Attr {
 
     /**
      * Sets the value of the columnRef property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setColumnRef(String value) {
         this.columnRef = value;
@@ -447,11 +410,9 @@ public class Attr {
 
     /**
      * Gets the value of the sql property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSql() {
         return sqlKey;
@@ -459,11 +420,9 @@ public class Attr {
 
     /**
      * Sets the value of the sql property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSql(String value) {
         this.sqlKey = value;
@@ -471,11 +430,9 @@ public class Attr {
 
     /**
      * Gets the value of the regularExp property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getRegularExp() {
         return regularExp;
@@ -483,11 +440,9 @@ public class Attr {
 
     /**
      * Sets the value of the regularExp property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setRegularExp(String value) {
         this.regularExp = value;
@@ -495,11 +450,9 @@ public class Attr {
 
     /**
      * Gets the value of the minLength property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getMinLength() {
         return minLength;
@@ -507,11 +460,9 @@ public class Attr {
 
     /**
      * Sets the value of the minLength property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setMinLength(Integer value) {
         this.minLength = value;
@@ -519,11 +470,9 @@ public class Attr {
 
     /**
      * Gets the value of the maxLength property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getMaxLength() {
         return maxLength;
@@ -531,11 +480,9 @@ public class Attr {
 
     /**
      * Sets the value of the maxLength property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setMaxLength(Integer value) {
         this.maxLength = value;
@@ -543,11 +490,9 @@ public class Attr {
 
     /**
      * Gets the value of the minValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMinValue() {
         return minValue;
@@ -555,11 +500,9 @@ public class Attr {
 
     /**
      * Sets the value of the minValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMinValue(String value) {
         this.minValue = value;
@@ -567,11 +510,9 @@ public class Attr {
 
     /**
      * Gets the value of the maxValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMaxValue() {
         return maxValue;
@@ -579,11 +520,9 @@ public class Attr {
 
     /**
      * Sets the value of the maxValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMaxValue(String value) {
         this.maxValue = value;
@@ -591,11 +530,9 @@ public class Attr {
 
     /**
      * Gets the value of the mask property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMask() {
         return mask;
@@ -603,11 +540,9 @@ public class Attr {
 
     /**
      * Sets the value of the mask property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMask(String value) {
         this.mask = value;
@@ -615,11 +550,9 @@ public class Attr {
 
     /**
      * Gets the value of the formula property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFormula() {
         return formula;
@@ -627,11 +560,9 @@ public class Attr {
 
     /**
      * Sets the value of the formula property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFormula(String value) {
         this.formula = value;
@@ -639,11 +570,9 @@ public class Attr {
 
     /**
      * Gets the value of the formatJava property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFormatJava() {
         return formatJava;
@@ -651,11 +580,9 @@ public class Attr {
 
     /**
      * Sets the value of the formatJava property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFormatJava(String value) {
         this.formatJava = value;
@@ -663,11 +590,9 @@ public class Attr {
 
     /**
      * Gets the value of the formatOracle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFormatOracle() {
         return formatOracle;
@@ -675,11 +600,9 @@ public class Attr {
 
     /**
      * Sets the value of the formatOracle property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFormatOracle(String value) {
         this.formatOracle = value;
