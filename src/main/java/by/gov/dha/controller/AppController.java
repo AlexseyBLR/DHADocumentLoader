@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/")
@@ -27,15 +31,18 @@ public class AppController {
     @Autowired
     private SQLValuesService sqlValuesService;
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
     public String goToTest(ModelMap modelMap, HttpSession session) throws Exception {
 
         modelMap.addAttribute("document", docService.getDoc());
-
         modelMap.addAttribute("sessionDoc", docService.getDoc());
 
-        modelMap.addAttribute("docWasteList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocWaste()));
+
+        modelMap.addAttribute("docAssetsPaths", new SimpleTableValues().getSimpleTablePath(docService.getDoc().getDocAssets()));
+        modelMap.addAttribute("docWastePaths", new SimpleTableValues().getSimpleTablePath(docService.getDoc().getDocWaste()));
+        modelMap.addAttribute("docServicesPaths", new SimpleTableValues().getSimpleTablePath(docService.getDoc().getDocServices()));
         modelMap.addAttribute("docAssetsList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocAssets()));
+        modelMap.addAttribute("docWasteList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocWaste()));
         modelMap.addAttribute("docServicesList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocServices()));
 
 //        modelMap.addAttribute("values", sqlValuesService.getSqlQueryFromDoc(docService.getDoc()));
@@ -44,8 +51,10 @@ public class AppController {
     }
 
 
-    @RequestMapping(value = "/testNext", method = RequestMethod.GET)
-    public String nextPage(ModelMap modelMap, @ModelAttribute("sessionDoc") Doc doc) throws Exception {
+    @RequestMapping(value = "/testNext", method = RequestMethod.POST)
+    public String nextPage(ModelMap modelMap, @ModelAttribute("sessionDoc") Doc doc,
+                           @ModelAttribute ("docAssetsList") SimpleTableValues values) throws Exception {
+
 
         docService.saveDoc(doc);
 
@@ -55,7 +64,7 @@ public class AppController {
         modelMap.addAttribute("docAssetsList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocAssets()));
         modelMap.addAttribute("docServicesList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocServices()));
 
-        return "MAIN";
+        return "AfterSaving";
     }
 
 

@@ -28,7 +28,7 @@ import java.util.List;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Row", namespace = "http://document.dha.gov.by", propOrder = {
-    "field"
+    "field",
 })
 public class Row {
 
@@ -36,6 +36,7 @@ public class Row {
     protected List<Field> field;
     @XmlAttribute(name = "idRow")
     protected Integer idRow;
+
 
     /**
      * Gets the value of the field property.

@@ -4,11 +4,7 @@
 <%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html;charset=utf-8" %>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
-          integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"
-            integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU"
-            crossorigin="anonymous"></script>
+    <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 
     <style>
         select {
@@ -22,47 +18,63 @@
     <c:if test="${attr.editable eq '1'}">
         <c:if test="${attr.visible eq '1'}">
 
-            <input id="radio" type="radio" name="selectOrInputType" value="inputText"/>
+            <c:if test="${attr.value eq 'select'}">
+                <form:radiobutton path="${attr.path}.value" value="input"></form:radiobutton>
+                <form:input path="${attr.path}.attr[0].value" value="${attr.attr[0].value}" type="text"
+                            placeholder="${attr.footer}"
+                            minlength="${attr.minLength}" maxlength="${attr.maxLength}"
+                            style="margin: 0.3%; width: ${attr.inputWidth}px; text-align: ${attr.alignment}"/>
 
-            <form:input path="${attr.attr[0].path}.value" value="${attr.value}" type="text" placeholder="${attr.footer}"
-                        minlength="${attr.minLength}" maxlength="${attr.maxLength}"
-                        style="margin: 0.3%; width: ${attr.inputWidth}px; text-align: ${attr.alignment}"/>
-            <%--<input--%>
-            <%--type="text" name="selectOrInputInputValue" value="${attr.attr.get(0).value}"/>--%>
+                <form:radiobutton path="${attr.path}.value" value="select" checked="true"></form:radiobutton>
+                <form:select path="${attr.attr[1].path}.value" items="${values.get(attr.sql)}"></form:select>
+            </c:if>
 
-            <input type="radio" name="selectOrInputType" value="select"/>
-            <form:select path="${attr.path}.value" items="${values.get(attr.sql)}"></form:select>
-            <%--<select name="selectOrInputSelectValue">--%>
-            <%--<c:forEach var="options" items="${values.get(attr.sql)}">--%>
-            <%--<option value="${attrType.value}">${options}</option>--%>
-            <%--</c:forEach>--%>
-            <%--</select>--%>
+            <c:if test="${attr.value eq 'input'}">
+                <form:radiobutton path="${attr.path}.value" value="input" checked="true"></form:radiobutton>
+                <form:input path="${attr.attr[0].path}.value" value="${attr.value}" type="text"
+                            placeholder="${attr.footer}"
+                            minlength="${attr.minLength}" maxlength="${attr.maxLength}"
+                            style="margin: 0.3%; width: ${attr.inputWidth}px; text-align: ${attr.alignment}"/>
+
+                <form:radiobutton path="${attr.path}.value" value="select"></form:radiobutton>
+                <form:select path="${attr.attr[1].path}.value" items="${values.get(attr.sql)}"></form:select>
+            </c:if>
+
         </c:if>
         <br>
         <c:if test="${attr.visible eq '0'}"></c:if>
     </c:if>
 
 
+
+
     <c:if test="${attr.editable eq '0'}">
         <c:if test="${attr.visible eq '1'}">
 
-            <form:input path="${attr.path}.value" value="${attr.value}" type="text" placeholder="${attr.footer}"
-                        minlength="${attr.minLength}" maxlength="${attr.maxLength}"
-                        style="margin: 0.3%; width: ${attr.inputWidth}px; text-align: ${attr.alignment}"
-                        disabled="true"/>
-            <%--<input type="radio" name="selectOrInputType" value="inputText" disabled/><input--%>
-            <%--type="text" name="selectOrInputInputValue" value="${attr.attr.get(0).value}"--%>
-            <%--placeholder="${attr.attr.get(0).footer}" disabled/>--%>
+            <c:if test="${attr.value eq 'select'}">
+                <form:radiobutton path="${attr.path}.value" value="input" disabled="true"></form:radiobutton>
+                <form:input path="${attr.attr[0].path}.value" value="${attr.value}" type="text"
+                            placeholder="${attr.footer}"
+                            minlength="${attr.minLength}" maxlength="${attr.maxLength}"
+                            style="margin: 0.3%; width: ${attr.inputWidth}px; text-align: ${attr.alignment}" disabled="true"/>
 
-            <input type="radio" name="selectOrInputType" value="select" disabled>
+                <form:radiobutton path="${attr.path}.value" value="select" checked="true" disabled="true"></form:radiobutton>
+                <form:select path="${attr.attr[1].path}.value" items="${values.get(attr.sql)}" disabled="true"></form:select>
+            </c:if>
 
-            <form:select path="${attr.path}.value" items="${values.get(attr.sql)}"></form:select>
-            <%--<select name="selectOrInputSelectValue">--%>
-                <%--<c:forEach var="options" items="${values.get(attr.sql)}">--%>
-                    <%--<option value="${attrType.value}">${options}</option>--%>
-                <%--</c:forEach>--%>
-            <%--</select>--%>
+            <c:if test="${attr.value eq 'input'}">
+                <form:radiobutton path="${attr.path}.value" value="input" checked="true" disabled="true"></form:radiobutton>
+                <form:input path="${attr.attr[0].path}.value" value="${attr.value}" type="text"
+                            placeholder="${attr.footer}"
+                            minlength="${attr.minLength}" maxlength="${attr.maxLength}"
+                            style="margin: 0.3%; width: ${attr.inputWidth}px; text-align: ${attr.alignment}" disabled="true"/>
+
+                <form:radiobutton path="${attr.path}.value" value="select" disabled="true"></form:radiobutton>
+                <form:select path="${attr.attr[1].path}.value" items="${values.get(attr.sql)}" disabled="true"></form:select>
+            </c:if>
+
         </c:if>
+        <br>
         <c:if test="${attr.visible eq '0'}"></c:if>
     </c:if>
 </div>

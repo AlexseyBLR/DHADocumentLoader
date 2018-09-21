@@ -31,26 +31,22 @@
     <meta name="author" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Registration</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
-          integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"
-            integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU"
-            crossorigin="anonymous"></script>
+    <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+
 </head>
 <body>
 
 
         <h5 style="font-weight: bold">${docAttr.header}</h5>
     <div class="form-control">
-        <br>
         <c:if test="${docAttr.type eq 'HBlock'}">
             <c:forEach var="attr" items="${docAttr.attr}">
-                <label>${attr.header}</label>
+                <label style="font-weight: bold">${attr.header}</label>
                 <%@include file="../data_type/TypeMain.jsp" %>
             </c:forEach></c:if>
         <c:if test="${docAttr.type eq 'VBlock'}">
             <c:forEach var="attr" items="${docAttr.attr}">
-                <label>${attr.header}</label>
+                <label style="font-weight: bold">${attr.header}</label>
                 <%@include file="../data_type/TypeMain.jsp" %>
                 <br/>
             </c:forEach>

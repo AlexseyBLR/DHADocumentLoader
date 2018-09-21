@@ -1,0 +1,11 @@
+<docAttr type="HBlock" header="" visible="1">
+    <attr num="30" type="SelectOneChoice" path="docAttr.attr[1]" sqlKey="NRI.LIST_DETAIL2" code="keeper"
+          header="Передачи указанного имущества на хранение:" visible="1" editable="1" required="1"/>
+    <attr num="30" type="SelectOneChoiceOrInput" path="docAttr.attr[2]" sqlKey="NRI.LIST_DETAIL1" code="keeper"
+          header="Передачи указанного имущества на хранение:" visible="1" editable="1" required="1">
+        <attr num="30" type="String" path="docAttr.attr[2].attr[0]" header="Передачи указанного имущества на хранение:"
+              visible="1" editable="1" required="1"><value>123</value></attr>
+        <attr num="30" type="SelectOneChoice" path="docAttr.attr[2].attr[1]" code="keeper"
+              header="Передачи указанного имущества на хранение:" visible="1" editable="1" required="1"/>
+    </attr>
+</docAttr>

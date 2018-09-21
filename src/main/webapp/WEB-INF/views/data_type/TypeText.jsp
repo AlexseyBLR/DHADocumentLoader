@@ -81,7 +81,7 @@
         <form:textarea path="${attrType.path}.value" placeholder="${attrType.footer}"
                        minlength="${attrType.minLength}" maxlength="${attrType.maxLength}"
                        style="width: ${attrType.inputWidth}px; height: 100px; text-align: ${attrType.alignment}"
-                       disabled="true" value="${attrType.value}"/>
+                       readonly="true" value="${attrType.value}"/>
         <%--<textarea placeholder="${attrType.footer}"--%>
                   <%--minlength="${attrType.minLength}" maxlength="${attrType.maxLength}"--%>
                   <%--style="text-align: ${attr.alignment}"--%>

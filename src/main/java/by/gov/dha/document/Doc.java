@@ -42,7 +42,8 @@ import javax.xml.bind.annotation.*;
         "docAssets",
         "docServices",
         "docBankDetails",
-        "docSql"
+        "docSql",
+        "path"
 
 })
 @XmlRootElement(name = "doc", namespace = "http://document.dha.gov.by")
@@ -72,6 +73,16 @@ public class Doc {
     protected Integer idDocType;
     @XmlAttribute(name = "docName")
     protected String docName;
+    @XmlAttribute(name = "path")
+    protected Integer path;
+
+    public Integer getPath() {
+        return path;
+    }
+
+    public void setPath(Integer path) {
+        this.path = path;
+    }
 
 
     /**

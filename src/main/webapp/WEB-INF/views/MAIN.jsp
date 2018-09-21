@@ -5,6 +5,7 @@
 <%@ page language="java" contentType="text/html;charset=utf-8" %>
 
 <!DOCTYPE html>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
 
@@ -24,12 +25,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Registration</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
-          integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"
-            integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU"
-            crossorigin="anonymous"></script>
+
 </head>
 <body>
 <div class="container">
@@ -45,11 +41,11 @@
     <c:set value="${sessionScope.sessionDoc.docBankDetails}" var="docBankDetails"/>
 
 
-    <form:form modelAttribute="document" action="/testNext" method="get">
+
+    <form:form modelAttribute="document" action="/testNext" method="post">
 
 
-
-        <h3 style="text-align: center">${sessionScope.session.docName}</h3>
+        <h3 style="text-align: center">${document.docName}</h3>
         <br>
 
         <c:if test="${docAttr !=null}">
@@ -91,9 +87,18 @@
             <hr>
         </c:if>
 
-        <input type="submit" value="test"/>
+        <input type="submit" onclick="checkBoxChecker()" value="test"/>
     </form:form>
 
 </div>
+
+
+<script type="text/javascript" src="resources/jQuery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    <%@include file="/WEB-INF/resources/JSFunction/checkBoxChecker.js"%>
+    <%@include file="/WEB-INF/resources/css/bootstrap.min.css"%>
+    <%@include file="/WEB-INF/resources/css/common.css"%>
+    <%@include file="/WEB-INF/resources/js/bootstrap.min.js"%>
+</script>
 </body>
 </html>

@@ -7,23 +7,51 @@ import java.util.Map;
 
 public class SimpleTableValues {
 
-    List<Map<Integer, String>> mapList = new ArrayList<>();
+    List<Map<Integer, String>> valuesMapsList = new ArrayList<>();
+    List<Map<Integer, String>> pathMapsList = new ArrayList<>();
 
 
     public List<Map<Integer, String>> getSimpleTableData(SimpleTable simpleTable) throws Exception {
         try {
             for (Row row: simpleTable.getTableData().getRow()) {
-                Map<Integer, String> valueMap = new HashMap<>();
+                Map<Integer, String> valuesMap = new HashMap<>();
                 for (Field field : row.getField()) {
-                    valueMap.put(field.getNum(), field.getValue());
+                    valuesMap.put(field.getNum(), field.getValue());
                 }
-                mapList.add(valueMap);
+                valuesMapsList.add(valuesMap);
             }
-            return mapList;
+            return valuesMapsList;
         }catch (Exception e){
-
         }
         return null;
     }
+
+    public List<Map<Integer, String>> getSimpleTablePath(SimpleTable simpleTable) throws Exception {
+        try {
+            for (Row row: simpleTable.getTableData().getRow()) {
+                Map<Integer, String> pathsMap = new HashMap<>();
+                for (Field field : row.getField()) {
+                    pathsMap.put(field.getNum(), field.getPath());
+                }
+                pathMapsList.add(pathsMap);
+            }
+            return pathMapsList;
+        }catch (Exception e){
+        }
+        return null;
+    }
+
+
+
+
+
+//    public Map<Integer, String> getSimpleTableData(SimpleTable simpleTable) {
+//        for (Row row : simpleTable.getTableData().getRow()){
+//            for (Field field : row.getField()){
+//                valueMap.put(field.getNum(), field.getValue());
+//            }
+//        }
+//        return valueMap;
+//    }
 
 }
