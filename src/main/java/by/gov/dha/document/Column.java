@@ -29,7 +29,8 @@ import java.util.List;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Column", namespace = "http://document.dha.gov.by", propOrder = {
-    "column"
+    "column",
+        "path"
 })
 public class Column {
 
@@ -79,9 +80,19 @@ public class Column {
     protected Integer required;
     @XmlAttribute(name = "alignment")
     protected String alignment;
-
     @XmlAttribute(name = "columnWidth")
     protected String columnWidth;
+    @XmlAttribute(name = "path")
+    protected String path;
+
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
 
     public String getColumnWidth() {
         return columnWidth;

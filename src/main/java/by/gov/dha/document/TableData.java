@@ -1,10 +1,7 @@
 
 package by.gov.dha.document;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,12 +29,23 @@ import java.util.Map;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TableData", namespace = "http://document.dha.gov.by", propOrder = {
-    "row"
+    "row",
+        "path"
 })
 public class TableData {
 
     @XmlElement(namespace = "http://document.dha.gov.by", required = true)
     protected List<Row> row;
+    @XmlAttribute(name = "path")
+    protected Integer path;
+
+    public Integer getPath() {
+        return path;
+    }
+
+    public void setPath(Integer path) {
+        this.path = path;
+    }
 
 
     /**

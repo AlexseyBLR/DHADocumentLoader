@@ -61,11 +61,17 @@
     </complexType>
 
     <complexType name="Field">
+        <!--<sequence>-->
+        <!--</sequence>-->
         <simpleContent>
             <extension base="string">
                 <attribute name="num" type="int"/>
+                <attribute name="path" type="string"/>
             </extension>
         </simpleContent>
+        <!--<attribute name="num" type="int"/>-->
+        <!--<attribute name="path" type="string"/>-->
+        <!--<attributeGroup ref="tns:SimpleAttrGroup"/>-->
     </complexType>
 
     <complexType name="Row">

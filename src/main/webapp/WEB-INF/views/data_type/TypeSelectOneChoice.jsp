@@ -4,11 +4,8 @@
 <%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html;charset=utf-8" %>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
-          integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"
-            integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU"
-            crossorigin="anonymous"></script>
+    <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+
     <style>
         select{
             width: 700px;
@@ -20,8 +17,6 @@
 
     <c:if test="${attr.editable eq '1'}">
         <c:if test="${attr.visible eq '1'}">
-            ${attr.header}
-            <br>
 
             <form:select path="${attr.path}.value" items="${values.get(attr.sql)}"></form:select>
 
@@ -37,9 +32,6 @@
 
     <c:if test="${attr.editable eq '0'}">
         <c:if test="${attr.visible eq '1'}">
-            ${attr.header}
-            <br>
-
             <form:select path="${attr.path}.value" items="${values.get(attr.sql)}"></form:select>
             <%--<select name="selectOnChoiceValue" disabled>--%>
                 <%--<c:forEach var="options" items="${values.get(attr.sql)}">--%>
@@ -53,9 +45,6 @@
 
     <c:if test="${attrType.editable eq '1'}">
         <c:if test="${attrType.visible eq '1'}">
-            ${attrType.header}
-            <br>
-
             <form:select path="${attrType.path}.value" items="${values.get(attrType.sql)}"></form:select>
 
             <%--<select name="selectOnChoiceValue">--%>

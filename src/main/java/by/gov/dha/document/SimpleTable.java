@@ -28,7 +28,8 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SimpleTable", namespace = "http://document.dha.gov.by", propOrder = {
     "tableHeader",
-    "tableData"
+    "tableData",
+        "path"
 })
 public class SimpleTable {
 
@@ -58,6 +59,16 @@ public class SimpleTable {
     protected Integer required;
     @XmlAttribute(name = "alignment")
     protected String alignment;
+    @XmlAttribute(name = "path")
+    protected Integer path;
+
+    public Integer getPath() {
+        return path;
+    }
+
+    public void setPath(Integer path) {
+        this.path = path;
+    }
 
     /**
      * Gets the value of the tableHeader property.
