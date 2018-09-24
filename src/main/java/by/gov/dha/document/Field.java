@@ -25,7 +25,8 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Field", namespace = "http://document.dha.gov.by", propOrder = {
     "value",
-        "path"
+        "path",
+        "sql"
 })
 public class Field {
 
@@ -35,6 +36,17 @@ public class Field {
     protected Integer num;
     @XmlAttribute(name = "path")
     protected String path;
+    @XmlAttribute(name = "sql")
+    protected String sql;
+
+
+    public String getSql() {
+        return sql;
+    }
+
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
 
     public String getPath() {
         return path;

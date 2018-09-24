@@ -8,7 +8,10 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link rel="shortcut icon" href="http://www.livejournal.com/favicon.png?v=49565" type="image/x-icon">
     <title>${document.docName}</title>
     <style>
@@ -44,6 +47,7 @@
 
     <form:form modelAttribute="document" action="/testNext" method="post">
 
+<%--${(document.docWaste.addRow.row.get(0).field.get(2).sql)}--%>
 
         <h3 style="text-align: center">${document.docName}</h3>
         <br>
