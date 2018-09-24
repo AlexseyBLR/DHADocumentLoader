@@ -1,1 +1,61 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><doc xmlns="http://document.dha.gov.by" docName="Письмо"><docWaste num="5" type="VBlock" footer="Footer" header="Header" prefix="Prefix" postfix="Postfix" visible="1" editable="0" required="0" alignment="left"><tableHeader tableRef="DOC_WASTE" num="10" type="Table" footer="Footer" header="В результате уничтожения имущества образовались отходы:" prefix="Prefix" postfix="Postfix" visible="1" editable="0" required="0" alignment="left"><column num="20" type="RowNum" header="п/п" visible="1" editable="1" required="1" alignment="left" columnWidth="50"/><column num="40" type="String" header="Наименование отхода" visible="1" editable="1" required="1" columnWidth="400"/><column num="50" type="Number" header="Количество" visible="1" editable="1" required="1" columnWidth="100"/><column num="60" type="Number" header="Единица измерения" visible="1" editable="1" required="1" columnWidth="230"><column num="70" type="Number" header="ID" visible="1" editable="0" required="0"/><column num="80" type="Number" code="measureName" header="Имя" visible="1" editable="0" required="0"/></column></tableHeader><tableData><row idRow="1"><field path="docWaste.tableData.row[0].field[0]" num="20">11</field><field path="docWaste.tableData.row[0].field[1]" num="40">WASTE_NAME1</field><field path="docWaste.tableData.row[0].field[2]" num="50">1</field><field path="docWaste.tableData.row[0].field[3]" num="70">1</field><field path="docWaste.tableData.row[0].field[4]" num="80">MEASURE_NAME1</field></row><row idRow="2"><field path="docWaste.tableData.row[1].field[0]" num="20">22</field><field path="docWaste.tableData.row[1].field[1]" num="40">WASTE_NAME2</field><field path="docWaste.tableData.row[1].field[2]" num="50">2</field><field path="docWaste.tableData.row[1].field[3]" num="70">2</field><field path="docWaste.tableData.row[1].field[4]" num="80">MEASURE_NAME2</field></row><row idRow="3"><field path="docWaste.tableData.row[2].field[0]" num="20"></field><field path="docWaste.tableData.row[2].field[1]" num="40"></field><field path="docWaste.tableData.row[2].field[2]" num="50"></field><field path="docWaste.tableData.row[2].field[3]" num="70"></field><field path="docWaste.tableData.row[2].field[4]" num="80"></field></row></tableData></docWaste><docSql><sqlQuery sqlKey="NRI.LIST_DETAIL1" sqlQuery="select ID_LIST_DETAIL AS ID, NAME_LIST_DETAIL as NAME from NRI.LIST_DETAIL where LIST_DETAIL.ID_LIST=3"/><sqlQuery sqlKey="NRI.LIST_DETAIL2" sqlQuery="select ID_LIST_DETAIL AS ID, NAME_LIST_DETAIL as NAME from NRI.LIST_DETAIL where LIST_DETAIL.ID_LIST=4"/><sqlQuery sqlKey="organization" sqlQuery="select ID_ORGANIZATION as ID, NAME_FULL_RU as NAME from NRI.ORGANIZATION"/></docSql></doc>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<doc xmlns="http://document.dha.gov.by" docName="Письмо">
+    <docWaste num="5" type="VBlock" footer="Footer" header="Header" prefix="Prefix" postfix="Postfix" visible="1"
+              editable="0" required="0" alignment="left">
+        <tableHeader tableRef="DOC_WASTE" num="10" type="Table" footer="Footer"
+                     header="В результате уничтожения имущества образовались отходы:" prefix="Prefix" postfix="Postfix"
+                     visible="1" editable="0" required="0" alignment="left">
+            <column num="20" type="RowNum" header="п/п" visible="1" editable="1" required="1" alignment="left"
+                    columnWidth="50"/>
+            <column num="40" type="String" header="Наименование отхода" visible="1" editable="1" required="1"
+                    columnWidth="400"/>
+            <column num="60" type="Number" header="Единица измерения" visible="1" editable="1" required="1"
+                    columnWidth="230">
+                <column num="70" type="Number" header="ID" visible="1" editable="0" required="0"/>
+                <column num="80" type="Number" code="measureName" header="Имя" visible="1" editable="0" required="0"/>
+            </column>
+        </tableHeader>
+        <tableData>
+            <row idRow="1">
+                <field path="docWaste.tableData.row[0].field[0]" num="20">11</field>
+                <field path="docWaste.tableData.row[0].field[1]" num="40">WASTE_NAME1</field>
+                <field path="docWaste.tableData.row[0].field[3]" num="70">1</field>
+                <field path="docWaste.tableData.row[0].field[4]" num="80">MEASURE_NAME1</field>
+                <field></field>
+            </row>
+            <row idRow="2">
+                <field path="docWaste.tableData.row[1].field[0]" num="20">22</field>
+                <field path="docWaste.tableData.row[1].field[1]" num="40">WASTE_NAME2</field>
+                <field path="docWaste.tableData.row[1].field[3]" num="70">2</field>
+                <field path="docWaste.tableData.row[1].field[4]" num="80">MEASURE_NAME2</field>
+                <field></field>
+            </row>
+            <row idRow="3">
+                <field path="docWaste.tableData.row[2].field[0]" num="20">57568567,03255648</field>
+                <field path="docWaste.tableData.row[2].field[1]" num="40">khkhjuhhk@ghjgk.kk,0000</field>
+                <field path="docWaste.tableData.row[2].field[3]" num="70"></field>
+                <field path="docWaste.tableData.row[2].field[4]" num="80">,</field>
+                <field>hjhj,hjh,121242134</field>
+            </row>
+        </tableData>
+        <addRow>
+            <row idRow="0">
+                <field path="docWaste.tableData.row[2].field[0]" sql="test1" num="20"></field>
+                <field path="docWaste.tableData.row[2].field[1]" sql="test2" num="40"></field>
+                <field path="docWaste.tableData.row[2].field[3]" num="70"></field>
+                <field path="docWaste.tableData.row[2].field[4]" num="80"></field>
+            </row>
+        </addRow>
+    </docWaste>
+    <docSql>
+        <sqlQuery sqlKey="NRI.LIST_DETAIL1"
+                  sqlQuery="select ID_LIST_DETAIL AS ID, NAME_LIST_DETAIL as NAME from NRI.LIST_DETAIL where LIST_DETAIL.ID_LIST=3"/>
+        <sqlQuery sqlKey="NRI.LIST_DETAIL2"
+                  sqlQuery="select ID_LIST_DETAIL AS ID, NAME_LIST_DETAIL as NAME from NRI.LIST_DETAIL where LIST_DETAIL.ID_LIST=4"/>
+        <sqlQuery sqlKey="organization"
+                  sqlQuery="select ID_ORGANIZATION as ID, NAME_FULL_RU as NAME from NRI.ORGANIZATION"/>
+        <sqlQuery sqlKey="test1" sqlQuery="select ID_CONTACT as ID, PHONE_NUMBER as NAME from NRI.CONTACT"/>
+        <sqlQuery sqlKey="test2" sqlQuery="select ID_CONTACT as ID, MAIL as NAME from NRI.CONTACT"/>
+        <sqlQuery sqlKey="test3" sqlQuery="select ID_CONTACT as ID, PHONE_NUMBER as NAME from NRI.CONTACT"/>
+    </docSql>
+</doc>

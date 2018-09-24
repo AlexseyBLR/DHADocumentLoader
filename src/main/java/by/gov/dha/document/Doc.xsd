@@ -67,6 +67,7 @@
             <extension base="string">
                 <attribute name="num" type="int"/>
                 <attribute name="path" type="string"/>
+                <attribute name="sql" type="string"/>
             </extension>
         </simpleContent>
         <!--<attribute name="num" type="int"/>-->
@@ -91,6 +92,7 @@
         <sequence>
             <element name="tableHeader" type="tns:TableHeader"/>
             <element name="tableData" type="tns:TableData"/>
+            <element name="addRow" type="tns:TableData"/>
         </sequence>
         <attributeGroup ref="tns:SimpleAttrGroup"/>
     </complexType>

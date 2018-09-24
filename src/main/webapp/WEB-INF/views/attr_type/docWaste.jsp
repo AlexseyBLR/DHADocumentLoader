@@ -64,8 +64,19 @@
 <div class="form-control">
 
 
+    <script>
+        function addRow() {
+            document.getElementById("table").insertRow(-1).innerHTML =
+                '<c:forEach items="${document.docWaste.addRow.row.get(0).field}" var="td"><td><c:if test="${!(td.sql eq null)}"><form:select path="${td.path}.value" items="${values.get(td.sql)}"></form:select></c:if><c:if test="${td.sql eq null}"><form:input path="${td.path}.value"></form:input></c:if></td></c:forEach>';
+            console.log("row added");
+        }
+    </script>
 
-    <table name="table" border="1">
+
+    <%--<form:select path="${td.path}.value" items="${values.get(td.sql)}"></form:select>--%>
+
+
+    <table name="table" id="table" border="1">
         <tr>
             <c:forEach var="attr" items="${docWaste.tableHeader.column}">
                 <c:choose>
@@ -83,58 +94,66 @@
             <c:forEach var="inAttr" items="${docWaste.tableHeader.column}">
                 <c:forEach var="inAttrValue" items="${inAttr.column}">
                     <td>${inAttrValue.header}</td>
+
                 </c:forEach>
             </c:forEach>
         </tr>
 
         <c:forEach var="row" items="${docWastePaths}">
-            <tr name="tr" id="tr">
-                <c:forEach var="attr" items="${docWaste.tableHeader.column}">
-                    <c:choose>
-                        <c:when test="${attr.column.size()>1}">
-                            <c:forEach var="val" items="${attr.column}">
+            <c:set value="${docWaste.tableHeader.column.get(0).num}" var="num"></c:set>
+            <c:if test="${!(docWasteList.get(row.get(num)) eq '')}">
+                <tr name="tr" id="tr">
+                    <c:forEach var="attr" items="${docWaste.tableHeader.column}">
+                        <c:choose>
+                            <c:when test="${attr.column.size()>1}">
+                                <c:forEach var="val" items="${attr.column}">
+                                    <c:if test="${attr.editable eq '1'}">
+                                        <td>
+                                            <form:input path="${row.get(val.num)}.value"
+                                                        style="width: ${attr.columnWidth}px"></form:input>
+                                        </td>
+                                    </c:if>
+                                    <c:if test="${attr.editable eq '0'}">
+                                        <td>
+                                            <form:input path="${row.get(val.num)}.value" readonly="true"
+                                                        style="width: ${attr.columnWidth}px"></form:input>
+                                        </td>
+                                    </c:if>
+                                </c:forEach>
+                            </c:when>
+                            <c:otherwise>
                                 <c:if test="${attr.editable eq '1'}">
                                     <td>
-                                        <form:input path="${row.get(val.num)}.value"
+                                        <form:input path="${row.get(attr.num)}.value"
                                                     style="width: ${attr.columnWidth}px"></form:input>
                                     </td>
                                 </c:if>
                                 <c:if test="${attr.editable eq '0'}">
                                     <td>
-                                        <form:input path="${row.get(val.num)}.value" readonly="true"
+                                        <form:input path="${row.get(attr.num)}.value" readonly="true"
                                                     style="width: ${attr.columnWidth}px"></form:input>
                                     </td>
                                 </c:if>
-                            </c:forEach>
-                        </c:when>
-                        <c:otherwise>
-                            <c:if test="${attr.editable eq '1'}">
-                                <td>
-                                    <form:input path="${row.get(attr.num)}.value"
-                                                style="width: ${attr.columnWidth}px"></form:input>
-                                </td>
-                            </c:if>
-                            <c:if test="${attr.editable eq '0'}">
-                                <td>
-                                    <form:input path="${row.get(attr.num)}.value" readonly="true"
-                                                style="width: ${attr.columnWidth}px"></form:input>
-                                </td>
-                            </c:if>
-                        </c:otherwise>
-                    </c:choose>
-                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
 
-                <td name="td" id="td" align="center"><input type="checkbox" class="checkbox" value="111">
-                </td>
-            </tr>
+                    <td name="td" id="td" align="center"><input type="checkbox" class="checkbox" value="111">
+                    </td>
+                </tr>
+            </c:if>
         </c:forEach>
     </table>
+
+
 </div>
 
-<input type="submit" value="+"/>
+
+<input type="button" onclick="addRow()" class="btn btn-primary btn-sm" style="margin-left: 97%" value="+"/>
 
 <script type="text/javascript">
     <%@include file="/WEB-INF/resources/JSFunction/checkBoxChecker.js"%>
+    <%--<%@include file="/WEB-INF/resources/JSFunction/addNewRow.js"%>--%>
 </script>
 </body>
 </html>

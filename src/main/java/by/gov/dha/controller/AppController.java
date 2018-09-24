@@ -41,9 +41,9 @@ public class AppController {
         modelMap.addAttribute("docAssetsPaths", new SimpleTableValues().getSimpleTablePath(docService.getDoc().getDocAssets()));
         modelMap.addAttribute("docWastePaths", new SimpleTableValues().getSimpleTablePath(docService.getDoc().getDocWaste()));
         modelMap.addAttribute("docServicesPaths", new SimpleTableValues().getSimpleTablePath(docService.getDoc().getDocServices()));
-        modelMap.addAttribute("docAssetsList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocAssets()));
-        modelMap.addAttribute("docWasteList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocWaste()));
-        modelMap.addAttribute("docServicesList", new SimpleTableValues().getSimpleTableData(docService.getDoc().getDocServices()));
+        modelMap.addAttribute("docAssetsList", new SimpleTableValues().getValue(docService.getDoc().getDocAssets()));
+        modelMap.addAttribute("docWasteList", new SimpleTableValues().getValue(docService.getDoc().getDocWaste()));
+        modelMap.addAttribute("docServicesList", new SimpleTableValues().getValue(docService.getDoc().getDocServices()));
 
 //        modelMap.addAttribute("values", sqlValuesService.getSqlQueryFromDoc(docService.getDoc()));
 

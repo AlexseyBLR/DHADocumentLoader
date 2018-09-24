@@ -29,12 +29,15 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "SimpleTable", namespace = "http://document.dha.gov.by", propOrder = {
     "tableHeader",
     "tableData",
-        "path"
+        "path",
+        "addRow"
 })
 public class SimpleTable {
 
     @XmlElement(namespace = "http://document.dha.gov.by", required = true)
     protected TableHeader tableHeader;
+    @XmlElement(namespace = "http://document.dha.gov.by", required = true)
+    protected AddRow addRow;
     @XmlElement(namespace = "http://document.dha.gov.by", required = true)
     protected TableData tableData;
     @XmlAttribute(name = "num")
@@ -68,6 +71,30 @@ public class SimpleTable {
 
     public void setPath(Integer path) {
         this.path = path;
+    }
+
+    /**
+     * Gets the value of the tableHeader property.
+     *
+     * @return
+     *     possible object is
+     *     {@link TableHeader }
+     *
+     */
+    public AddRow getAddRow() {
+        return addRow;
+    }
+
+    /**
+     * Sets the value of the tableHeader property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link AddRow }
+     *
+     */
+    public void setAddRow(AddRow value) {
+        this.addRow = value;
     }
 
     /**

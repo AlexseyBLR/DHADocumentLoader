@@ -11,9 +11,24 @@ public class SimpleTableValues {
     List<Map<Integer, String>> pathMapsList = new ArrayList<>();
 
 
-    public List<Map<Integer, String>> getSimpleTableData(SimpleTable simpleTable) throws Exception {
+    Map<String, String> valuesMap = new HashMap<>();
+
+    public Map<String, String> getValue(SimpleTable simpleTable) {
         try {
-            for (Row row: simpleTable.getTableData().getRow()) {
+            for (Row row : simpleTable.getTableData().getRow()) {
+                for (Field field : row.getField()) {
+                    valuesMap.put(field.getPath(), field.getValue());
+                }
+            }
+            return valuesMap;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public List<Map<Integer, String>> getSimpleTableData(SimpleTable simpleTable) {
+        try {
+            for (Row row : simpleTable.getTableData().getRow()) {
                 Map<Integer, String> valuesMap = new HashMap<>();
                 for (Field field : row.getField()) {
                     valuesMap.put(field.getNum(), field.getValue());
@@ -21,14 +36,14 @@ public class SimpleTableValues {
                 valuesMapsList.add(valuesMap);
             }
             return valuesMapsList;
-        }catch (Exception e){
+        } catch (Exception e) {
         }
         return null;
     }
 
     public List<Map<Integer, String>> getSimpleTablePath(SimpleTable simpleTable) throws Exception {
         try {
-            for (Row row: simpleTable.getTableData().getRow()) {
+            for (Row row : simpleTable.getTableData().getRow()) {
                 Map<Integer, String> pathsMap = new HashMap<>();
                 for (Field field : row.getField()) {
                     pathsMap.put(field.getNum(), field.getPath());
@@ -36,13 +51,10 @@ public class SimpleTableValues {
                 pathMapsList.add(pathsMap);
             }
             return pathMapsList;
-        }catch (Exception e){
+        } catch (Exception e) {
         }
         return null;
     }
-
-
-
 
 
 //    public Map<Integer, String> getSimpleTableData(SimpleTable simpleTable) {
