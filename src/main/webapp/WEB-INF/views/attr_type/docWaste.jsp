@@ -8,43 +8,43 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <style>
-        .demotable {
-            border-collapse: collapse;
-            counter-reset: schetchik; /* счётчик с названием "schetchik" работает в рамках класса .demotable */
+    <style type="text/css">
+
+        #wrap {
+            display: none;
+            opacity: 0.8;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            padding: 16px;
+            background-color: rgba(1, 1, 1, 0.725);
+            z-index: 100;
+            overflow: auto;
         }
 
-        .demotable tr {
-            counter-increment: schetchik; /* при встрече тега tr счётчик с названием "schetchik" увеличивается на единицу */
+        #window {
+            width: 60%;
+            height: 300px;
+            margin: 50px auto;
+            display: none;
+            background: #fff;
+            z-index: 200;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            padding: 16px;
         }
 
-        .demotable td,
-        .demotable tr:before {
-            padding: .1em .5em;
-            border: 1px solid #E7D5C0;
+        .close {
+            margin-left: 364px;
+            margin-top: 4px;
+            cursor: pointer;
         }
 
-        .demotable tr:before {
-            content: counter(schetchik); /* значение счётчика с названием "schetchik" записывается в первую клетку строки */
-            display: table-cell;
-            vertical-align: middle;
-            color: #978777;
-        }
-
-        .parent {
-            display: flex;
-            height: 30px;
-            line-height: 26px;
-        }
-
-        .child {
-            display: block;
-            margin-right: 1%;
-        }
-
-        .child.max {
-            flex: 1;
-        }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -55,30 +55,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"
             integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU"
             crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://yandex.st/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function show(state) {
+            document.getElementById('window').style.display = state;
+            document.getElementById('wrap').style.display = state;
+        }
 
+    </script>
 </head>
 <body>
 
 
-<h5 style="font-weight: bold">${docWaste.tableHeader.header}</h5>
+<h5 style="font-weight: bold">${sessionScope.sessionDoc.docWaste.tableHeader.header}</h5>
 <div class="form-control">
-
-
-    <script>
-        function addRow() {
-            document.getElementById("table").insertRow(-1).innerHTML =
-                '<c:forEach items="${document.docWaste.addRow.row.get(0).field}" var="td"><td><c:if test="${!(td.sql eq null)}"><form:select path="${td.path}.value" items="${values.get(td.sql)}"></form:select></c:if><c:if test="${td.sql eq null}"><form:input path="${td.path}.value"></form:input></c:if></td></c:forEach>';
-            console.log("row added");
-        }
-    </script>
-
-
-    <%--<form:select path="${td.path}.value" items="${values.get(td.sql)}"></form:select>--%>
-
-
     <table name="table" id="table" border="1">
         <tr>
-            <c:forEach var="attr" items="${docWaste.tableHeader.column}">
+            <c:forEach var="attr" items="${sessionScope.sessionDoc.docWaste.tableHeader.column}">
                 <c:choose>
                     <c:when test="${attr.column.size()>1}">
                         <th colspan="2" width="${attr.columnWidth}px">${attr.header}</th>
@@ -91,7 +84,7 @@
             <th>Удалить строку</th>
         </tr>
         <tr>
-            <c:forEach var="inAttr" items="${docWaste.tableHeader.column}">
+            <c:forEach var="inAttr" items="${sessionScope.sessionDoc.docWaste.tableHeader.column}">
                 <c:forEach var="inAttrValue" items="${inAttr.column}">
                     <td>${inAttrValue.header}</td>
 
@@ -99,11 +92,15 @@
             </c:forEach>
         </tr>
 
+
+       ${mm}
+
         <c:forEach var="row" items="${docWastePaths}">
-            <c:set value="${docWaste.tableHeader.column.get(0).num}" var="num"></c:set>
+            <c:set value="${sessionScope.sessionDoc.docWaste.tableHeader.column.get(0).num}" var="num"></c:set>
+
             <c:if test="${!(docWasteList.get(row.get(num)) eq '')}">
                 <tr name="tr" id="tr">
-                    <c:forEach var="attr" items="${docWaste.tableHeader.column}">
+                    <c:forEach var="attr" items="${sessionScope.sessionDoc.docWaste.tableHeader.column}">
                         <c:choose>
                             <c:when test="${attr.column.size()>1}">
                                 <c:forEach var="val" items="${attr.column}">
@@ -144,16 +141,54 @@
             </c:if>
         </c:forEach>
     </table>
-
-
 </div>
 
 
-<input type="button" onclick="addRow()" class="btn btn-primary btn-sm" style="margin-left: 97%" value="+"/>
+<script>
+    function testAjax() {
+        var selectBoxValue = document.getElementById('select').value;
+        // var value = selectBox.value;
+        $.ajax({
+            type: "post",
+            url: "/ajaxTest",
+            cache: false,
+            data: 'testParam=' + selectBoxValue,
+            error: function () {
+                alert("ERROR");
+            }
+        });
+        location.reload();
+        document.getElementById('mainButton').click();
+    }
+</script>
 
+
+<script type="text/javascript" language="javascript"
+        src="http://www.technicalkeeda.com/js/javascripts/plugin/jquery.js"></script>
+<script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/json2.js"></script>
 <script type="text/javascript">
     <%@include file="/WEB-INF/resources/JSFunction/checkBoxChecker.js"%>
-    <%--<%@include file="/WEB-INF/resources/JSFunction/addNewRow.js"%>--%>
 </script>
+
+<a href="#" onclick="show('block')" style="margin-left: 93%" class="btn btn-primary btn-sm">Добавить</a>
+<div onclick="show('none')" id="wrap" style="display: none;"></div>
+
+<div id="window" style="display: none;">
+
+    <img class="close" onclick="show('none')"
+         src="https://sergey-oganesyan.ru/wp-content/uploads/2014/01/close.png"/>
+
+    <select id="select">
+        <c:forEach var="qq" items="${newTableRowValue.get('test').keySet()}">
+            <option>${qq}</option>
+        </c:forEach>
+    </select>
+    </p>
+    <input type="button" id="buttonAdd" value="Добавить значение в таблицу"
+           onclick="testAjax(); show('none');">
+    <input type="button" id="buttonCancel" value="Отмена"
+           onclick="show('none');">
+</div>
+
 </body>
 </html>

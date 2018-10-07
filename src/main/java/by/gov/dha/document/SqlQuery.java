@@ -34,6 +34,8 @@ public class SqlQuery {
     protected String sqlKey;
     @XmlAttribute(name = "sqlQuery")
     protected String sqlQuery;
+    @XmlAttribute(name = "sqlForTable")
+    protected Integer sqlForTable;
     @XmlAttribute(name = "num")
     protected Integer num;
     @XmlAttribute(name = "type")
@@ -60,6 +62,33 @@ public class SqlQuery {
     protected Integer inputWidth;
     @XmlAttribute(name = "textWidth")
     protected Integer textWidth;
+
+
+
+
+    /**
+     * Gets the value of the sqlKey property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public Integer getSqlForTable() {
+        return sqlForTable;
+    }
+
+    /**
+     * Sets the value of the sqlKey property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setSqlForTable(Integer value) {
+        this.sqlForTable = value;
+    }
 
     /**
      * Gets the value of the sqlKey property.

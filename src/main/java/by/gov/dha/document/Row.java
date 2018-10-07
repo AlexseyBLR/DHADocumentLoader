@@ -32,10 +32,17 @@ import java.util.List;
 })
 public class Row {
 
+    public void setField(List<Field> field) {
+        this.field = field;
+    }
+
     @XmlElement(namespace = "http://document.dha.gov.by", required = true)
     protected List<Field> field;
     @XmlAttribute(name = "idRow")
     protected Integer idRow;
+
+
+
 
 
     /**

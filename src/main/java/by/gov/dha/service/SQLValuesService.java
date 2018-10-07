@@ -10,4 +10,5 @@ public interface SQLValuesService {
 
     Map<String, List<String>> getSqlQueryFromDoc(Doc doc);
 
+    Map<String, Map<String, Map<String, String>>> getNewRowValue(Doc doc);
 }

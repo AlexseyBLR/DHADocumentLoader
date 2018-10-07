@@ -213,6 +213,7 @@
     <xsd:complexType name="SqlQuery">
         <attribute name="sqlKey" type="string"/>
         <attribute name="sqlQuery" type="string"/>
+        <attribute name="sqlForTable" type="int"/>
     </xsd:complexType>
 
 
