@@ -49,15 +49,12 @@ public class AppController {
         modelMap.addAttribute("docWasteList", new SimpleTableValues().getValue(doc.getDocWaste()));
         modelMap.addAttribute("docServicesList", new SimpleTableValues().getValue(doc.getDocServices()));
 
-<<<<<<< HEAD
-//        modelMap.addAttribute("values", sqlValuesService.getSqlQueryFromDoc(docService.getDoc()));
-=======
+
         modelMap.addAttribute("values", sqlValuesService.getSqlQueryFromDoc(doc));
         modelMap.addAttribute("newTableRowValue", sqlValuesService.getNewRowValue(doc));
         modelMap.addAttribute("docWasteObj", doc.getDocWaste());
         modelMap.addAttribute("docAssetsObj", doc.getDocAssets());
         modelMap.addAttribute("docServicesObj", doc.getDocServices());
->>>>>>> AlexeyWORK
 
         return "WEB-INF/views/MAIN";
     }
