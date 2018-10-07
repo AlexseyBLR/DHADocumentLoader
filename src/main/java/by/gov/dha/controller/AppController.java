@@ -89,8 +89,6 @@ public class AppController {
     public void ajaxTest(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap,
                          @ModelAttribute("sessionDoc") Doc doc) throws ServletException, IOException {
         var = request.getParameter("testParam");
-//        modelMap.addAttribute("sessionDoc", docWasteService.addRow(doc, sqlValuesService.getNewRowValue(doc).get("test"), var));
-//        Doc emptyRowDoc = docWasteService.deleteIdRowValue(doc);
         modelMap.addAttribute("sessionDoc", docTableService.addRow(doc, sqlValuesService.getNewRowValue(doc).get("test"), var));
         Doc emptyRowDoc = docTableService.deleteIdRowValue(doc);
         docService.saveDoc(emptyRowDoc);
