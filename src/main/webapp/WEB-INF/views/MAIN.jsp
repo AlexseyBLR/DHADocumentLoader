@@ -33,6 +33,7 @@
 <body>
 <div class="container">
 
+
     <c:set value="${sessionScope.sessionDoc.docSql}" var="docSql"/>
     <c:set value="${sessionScope.sessionDoc.docAttr}" var="docAttr"/>
     <c:set value="${sessionScope.sessionDoc.docDocs}" var="docDocs"/>
@@ -43,11 +44,8 @@
     <c:set value="${sessionScope.sessionDoc.docServices}" var="docServices"/>
     <c:set value="${sessionScope.sessionDoc.docBankDetails}" var="docBankDetails"/>
 
-
-
     <form:form modelAttribute="document" action="/testNext" method="post">
 
-<%--${(document.docWaste.addRow.row.get(0).field.get(2).sql)}--%>
 
         <h3 style="text-align: center">${document.docName}</h3>
         <br>
@@ -91,8 +89,13 @@
             <hr>
         </c:if>
 
-        <input type="submit" onclick="checkBoxChecker()" value="test"/>
+        <input type="submit" id="mainButton" class="btn btn-primary" value="Сохранить" onclick="checkBoxChecker()"/>
     </form:form>
+    <br>
+    <form:form action="/tablePage" method="post">
+        <input type="submit" class="btn btn-danger" value="Закончить работу с документом"/>
+    </form:form>
+
 
 </div>
 

@@ -24,12 +24,26 @@
         <h2database.version>1.4.196</h2database.version>
         <jpa.version>1.0.0.Final</jpa.version>
         <spring.version>4.0.9.RELEASE</spring.version>
+        <jackson.version>2.6.3</jackson.version>
         <spring.data>1.8.0.RELEASE</spring.data>
 
     </properties>
 
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>

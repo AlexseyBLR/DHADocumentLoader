@@ -47,6 +47,9 @@ public class TableData {
         this.path = path;
     }
 
+    public void setRow(List<Row> row) {
+        this.row = row;
+    }
 
     /**
      * Gets the value of the row property.

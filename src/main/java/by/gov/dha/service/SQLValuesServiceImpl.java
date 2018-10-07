@@ -19,4 +19,9 @@ public class SQLValuesServiceImpl implements SQLValuesService {
     public Map<String, List<String>> getSqlQueryFromDoc(Doc doc) {
         return sqlValues.getSqlQueryFromDoc(doc);
     }
+
+    @Override
+    public Map<String, Map<String, Map<String, String>>> getNewRowValue(Doc doc) {
+        return sqlValues.getNewRowValue(doc);
+    }
 }

@@ -3,8 +3,6 @@ package by.gov.dha.dao;
 
 import by.gov.dha.document.Doc;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -15,5 +13,7 @@ public interface SqlValues {
 //    Connection getDBConnection();
 
     Map<String, List<String>> getSqlQueryFromDoc(Doc doc);
+
+    Map<String, Map<String, Map<String, String>>> getNewRowValue(Doc doc);
 
 }

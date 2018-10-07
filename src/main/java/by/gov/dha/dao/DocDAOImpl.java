@@ -45,7 +45,7 @@ public class DocDAOImpl implements DocDAO {
         doc.setDocServices(docServices);
         doc.setDocBankDetails(docBankDetails);
 
-        File xml = new File("D:\\AlexeyMeleschenya\\DHADocumentLoader\\src\\main\\resources\\test.xml");
+        File xml = new File("D:\\AlexeyMeleschenya\\DHADocumentLoader\\src\\main\\resources\\savedTest.xml");
         try {
             JAXBContext jaxbctx = JAXBContext.newInstance("by.gov.dha.document");
             Unmarshaller unm = jaxbctx.createUnmarshaller();
@@ -65,6 +65,7 @@ public class DocDAOImpl implements DocDAO {
         try {
             JAXBContext jaxbctx = JAXBContext.newInstance("by.gov.dha.document");
             Marshaller marshaller = jaxbctx.createMarshaller();
+            Field field = new Field();
             marshaller.marshal(document, savedXml);
         }catch (Exception e){
             e.printStackTrace();
